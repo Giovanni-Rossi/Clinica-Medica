@@ -116,10 +116,14 @@ Este projeto é uma API RESTful desenvolvida com Spring Boot para gerenciar uma 
 Consultas: Estrutura prevista, mas ainda não implementada. Futuramente, incluirá agendamento, atualização e cancelamento de consultas.
 
 ### Como Executar o Projeto
-Pré-requisitos
-    * Java 8 ou superior
-    * Maven
-    * Banco de dados configurado (se aplicável; pode ser configurado via application.properties)
+Pré-requisitos:
+
+* Java 8 ou superior
+    
+* Maven
+    
+* Banco de dados configurado (se aplicável; pode ser configurado via application.properties)
+  
 Passos para Executar
   1. Clone o repositório:
 ```bash
