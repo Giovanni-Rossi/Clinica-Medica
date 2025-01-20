@@ -123,9 +123,9 @@ Pré-requisitos
 Passos para Executar
   1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/Giovanni-Rossi/Clinica-Medica
 
-cd nome-do-repositorio
+cd clinica
 ```
 
   3. Compile e execute a aplicação:
