@@ -50,8 +50,8 @@ public class WebSecurityConfig {
                     .requestMatchers("/clientes").permitAll()
                     .requestMatchers("/medicos", "medicos/{d}","/medicos/especialidade/{d}").permitAll()
                     .requestMatchers("/clientes/{d}").permitAll()
-                    .requestMatchers("/consultas").permitAll()
-                    .requestMatchers("/consultas/{d}").permitAll()
+                    .requestMatchers("/consultas", "consultas/medico/{d}").permitAll()
+                    .requestMatchers("/consultas/{d}", "/consultas/paciente/{d}").permitAll()
                     .anyRequest().authenticated())
             .csrf(AbstractHttpConfigurer::disable)
             .formLogin((form) -> form

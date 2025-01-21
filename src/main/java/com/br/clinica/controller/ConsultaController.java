@@ -74,6 +74,32 @@ public class ConsultaController {
 		}
 		return ResponseEntity.ok(lista);
 	}
+	
+	@GetMapping(path = "/consultas/paciente/{id}")
+	public ResponseEntity <List<Consulta>> listaPaciente(@PathVariable("id") Long id){
+		Cliente cliente = clienteService.buscarPorId(id);
+		if(cliente != null) {
+			List<Consulta> lista = service.buscarTodos(cliente);
+			return ResponseEntity.ok(lista);
+		}
+		else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
+	
+	@GetMapping(path = "/consultas/medico/{id}")
+	public ResponseEntity <List<Consulta>> listaMedico(@PathVariable("id") Long id){
+		Medico medico = medicoService.buscarPorId(id);
+		if(medico != null) {
+			List<Consulta> lista = service.buscarTodos(medico);
+			return ResponseEntity.ok(lista);
+		}
+		else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
 	@PostMapping(path = "/consultas")
 	public ResponseEntity<Consulta> cria(@RequestBody JSONObject json){
 		try {
