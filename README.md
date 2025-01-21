@@ -138,6 +138,6 @@ cd clinica
 ```
 
 # Futuras Melhorias
-  * **Implementação de Endpoints para Consultas:** Expandir a API para incluir gerenciamento completo de consultas (agendamento, atualização e cancelamento).
+  * ~**Implementação de Endpoints para Consultas:** Expandir a API para incluir gerenciamento completo de consultas (agendamento, atualização e cancelamento).~
   * **Validações e Tratamento de Erros:** Melhorar a validação de entrada e os tratamentos de erros para todas as rotas.
   * **Autenticação e Autorização:** Implementar segurança para proteger os endpoints.
