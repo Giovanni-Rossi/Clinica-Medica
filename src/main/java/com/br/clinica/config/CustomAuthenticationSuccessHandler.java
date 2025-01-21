@@ -30,9 +30,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             } else if (authority.getAuthority().equals("ROLE_ADMIN")) {
                 redirectUrl = "/admins/home";
                 break;
-            } else if (authority.getAuthority().equals("ROLE_LOCADORA")) {
-                redirectUrl = "/locadoras/home";
-                break;
             }
         }
 
