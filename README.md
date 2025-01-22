@@ -109,11 +109,46 @@ Este projeto é uma API RESTful desenvolvida com Spring Boot para gerenciar uma 
 
 * Remover um médico
   * **URL:** ``DELETE /medicos/{id}``
-  * **Parâmetros de caminho:** id - ID do médico a ser removido
+  * **Parâmetros de caminho:** id - ID do médico a ser removido.
   * **Resposta:** Status 204 (No Content) em sucesso ou 404 se o médico não for encontrado.
 
-* Consultas
-Consultas: Estrutura prevista, mas ainda não implementada. Futuramente, incluirá agendamento, atualização e cancelamento de consultas.
+### Consultas
+* Listar consultas
+  * **URL**: ``GET /consultas``
+  * **Resposta:** Lista de todas as consultas em caso de sucesso ou 404 se não encontrado.
+
+* Listar as consultas de um paciente
+  * **URL**: ``GET /consultas/paciente/{id}``
+  * **Parâmetros de caminho:** id - ID do paciente específicado
+  * **Resposta:** Lista de consultas do paciente específicado em caso de sucesso ou 404 se não encontrado.
+ 
+* Listar as consultas de um médico
+  * **URL**: ``GET /consultas/medico/{id}``
+  * **Parâmetros de caminho:** id - ID do médico específicado.
+  * **Resposta:** Lista de consultas do médico específicado em caso de sucesso ou 404 se não encontrado.
+
+* Criar consulta
+  * **URL**: ``POST /consultas``
+  * **Corpo de requisição:** Objeto json com os dados da consulta, e os IDs do paciente e médico específicado.
+  ``` json
+  {
+  "medicoId": 152,
+  "clienteId": 1,
+  "data" : "10:00-21/01/2025"
+  }
+  ```
+  * ** Resposta:** Objeto Consulta criado ou erro 400/422 em caso de falha.
+ 
+* Atualizar consulta
+  * **URL:** ``PUT /consultas/{id}``
+  * **Parâmetros de caminho:** id - ID da consulta específicada.
+  * **Corpo de requisição:** Objeto json com os dados atualizados da consulta, e os IDs do paciente e médico específicados.
+  * **Resposta:** Objeto Consulta atualizado ou erro 400/422 em caso de falha.
+ 
+* Excluir consulta
+  * **URL:** ``DEL  /consultas/{id} ``
+  * **Parâmetros de caminho:** id - ID da consulta específicada.
+  * **Resposta:** 204 caso tenha sucesso em excluir a consulta e 404 caso de falha ao encontrar a consulta.
 
 ### Como Executar o Projeto
 Pré-requisitos:
