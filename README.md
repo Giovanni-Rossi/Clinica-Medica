@@ -9,6 +9,7 @@ Este projeto é uma API RESTful desenvolvida com Spring Boot para gerenciar uma 
 - [Endpoints Disponíveis](#endpoints-disponíveis)
   - [Clientes](#clientes)
   - [Médicos](#médicos)
+  - [Consultas](#consultas)
 - [Como Executar o Projeto](#como-executar-o-projeto)
 - [Futuras Melhorias](#futuras-melhorias)
 
