@@ -1,6 +1,6 @@
 # Clínica Médica API
 
-Este projeto é uma API RESTful desenvolvida com Spring Boot para gerenciar uma clínica médica, é um projeto baseado para o desenvolvimento de minhas habilidades. A aplicação lida com operações relacionadas a **médicos**, **clientes** e, futuramente, **consultas**. Atualmente, implementamos os controladores para gerenciar **clientes** e **médicos**, enquanto o controlador para **consultas** está previsto para desenvolvimento futuro.
+Este projeto é uma API RESTful desenvolvida com Spring Boot para gerenciar uma clínica médica, é um projeto baseado para o desenvolvimento de minhas habilidades. A aplicação lida com operações relacionadas a **médicos**, **clientes** e **consultas**. Atualmente, implementamos os controladores para gerenciar **clientes** e **médicos** e **consultas** .
 
 ## Sumário
 
