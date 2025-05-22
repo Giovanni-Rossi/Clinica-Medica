@@ -1,0 +1,11 @@
+.clientes-page-container {
+  /* Usa a classe .container global ou define padding aqui */
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  gap: 10px; /* Espaço entre os cards, se não definido no .card */
+  margin-top: 20px;
+}

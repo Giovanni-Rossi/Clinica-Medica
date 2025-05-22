@@ -1,0 +1,98 @@
+/* Navbar styles */
+.app-navbar {
+  background-color: #2c3e50;
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.app-navbar .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.app-navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.app-navbar nav a:hover,
+.app-navbar nav a.active { /* Você precisaria de NavLink do react-router-dom para a classe .active */
+  background-color: #34495e;
+}
+
+/* Page title styles */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  color: #333;
+}
+
+/* Button styles (general) */
+.button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.button-primary {
+  background-color: #3498db;
+  color: white;
+}
+.button-primary:hover {
+  background-color: #2980b9;
+}
+
+.button-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+.button-danger:hover {
+  background-color: #c0392b;
+}
+
+.button-secondary {
+  background-color: #ecf0f1;
+  color: #34495e;
+  border: 1px solid #bdc3c7;
+}
+.button-secondary:hover {
+  background-color: #dde1e2;
+}
+
+.loading-indicator, .error-message, .no-data-message {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+}
+
+.error-message {
+  color: #c0392b;
+  background-color: #fdd;
+  border: 1px solid #c0392b;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.no-data-message {
+    color: #7f8c8d;
+}

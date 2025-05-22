@@ -1,0 +1,12 @@
+/* frontend/src/pages/MedicosPage.css */
+.medicos-page-container {
+  /* Estilos específicos para a página de médicos, se houver */
+}
+
+.cards-grid { /* Reutilizando a classe de ClientesPage, se aplicável */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os cards horizontalmente */
+  gap: 10px; /* Espaço entre os cards */
+  margin-top: 20px;
+}

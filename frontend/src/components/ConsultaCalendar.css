@@ -1,0 +1,18 @@
+.calendar-container {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Para customizar o react-big-calendar, você precisará inspecionar 
+   as classes que ele gera e sobrescrevê-las. Exemplo: */
+.rbc-toolbar button {
+  /* background-color: #3498db !important; */
+  /* color: white !important; */
+  /* border: none !important; */
+}
+.rbc-event {
+  /* background-color: #2ecc71 !important; */
+  /* border-radius: 4px !important; */
+}
