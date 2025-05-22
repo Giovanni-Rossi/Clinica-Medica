@@ -1,10 +1,25 @@
 # Clínica App
 
-Aplicação full-stack para gerenciamento de clínica, capaz de realizar operações de CRUD para Medicos e Clientes, é composta por:
+Aplicação full-stack para gerenciamento de clínica, capaz de realizar operações de CRUD para Medicos e Clientes. É composta por:
 
 - **Backend**: Aplicação Spring Boot (localizada em `clinica`)
 - **Frontend**: Aplicação React (localizada em `frontend`)
 - **Banco de Dados**: PostgreSQL
+
+## Sobre a aplicação
+A aplicação permite duas operações de CRUD(Create Read Update and Delete) sobre duas classes, cliente e medico. A motivação da aplicação é o reuso do back-end criado na disciplina de WEB-1 e a escolha do React framework no front-end pelo seu uso em WEB-2.
+
+## Estrutura do Projeto
+
+```plaintext
+.
+├── clinica/           # Backend Spring Boot
+│   └── Dockerfile
+├── frontend/          # App React
+│   └── Dockerfile
+├── docker-compose.yml
+├── README.md          # Descrição completa da atividade
+```
 
 ## Dependências
 
