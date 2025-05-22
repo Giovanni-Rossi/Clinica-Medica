@@ -12,13 +12,9 @@ RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn build
 
-# Etapa 2: servidor com Nginx
 FROM nginx:stable-alpine AS production
 COPY --from=builder /app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Opcional, só para documentação interna
-#EXPOSE 80
 
-# Comando padrão
 CMD ["nginx", "-g", "daemon off;"]
