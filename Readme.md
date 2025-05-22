@@ -19,11 +19,6 @@ Aplicação full-stack para gerenciamento de clínica, capaz de realizar operaç
     ```bash
     docker-compose up --build
     ```
-
-    - **backend**: Disponível em [http://localhost:8080](http://localhost:8080)
-    - **frontend**: Disponível em [http://localhost:3000](http://localhost:3000)
-    - **postgres**: Banco de dados utilizado pelo backend
-
 ## Acesso
 
 Para acessar a aplicação, abra seu navegador e digite o endereço: [http://localhost:3000](http://localhost:3000). A interface é responsiva e intuitiva, permitindo fácil navegação e interação com todas as funcionalidades do sistema.
