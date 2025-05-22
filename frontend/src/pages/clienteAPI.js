@@ -5,7 +5,9 @@ import axios from 'axios'; // Ou seu apiClient configurado
 // const API_BASE_URL = ''; // Já está no apiClient
 
 // Se não configurou apiClient, use a URL completa ou defina aqui:
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+//console.log('API_BASE_URL:', process.env.REACT_APP_API_URL);
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://backend:8080';
+//const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
 
 // Ajuste para usar apiClient se você o criou, ou axios diretamente

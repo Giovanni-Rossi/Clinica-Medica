@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // URL base da API, vinda das variáveis de ambiente do Docker ou um fallback
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://backend:8080'; //|| 'http://localhost:8080';
 
 // Instância do Axios configurada para este módulo de API
 const apiClientInstance = axios.create({

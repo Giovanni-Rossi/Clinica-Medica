@@ -19,6 +19,7 @@ function ClientesPage() {
   const fetchClientes = async () => {
     // ... (mesma lógica de fetch da versão MUI) ...
     try {
+      console.log(process.env)
       setLoading(true);
       const response = await getAllClientes();
       setClientes(response.data || []);
