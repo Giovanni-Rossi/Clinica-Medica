@@ -20,7 +20,7 @@ public class ClinicaApplication {
 	@Bean
 	public CommandLineRunner demo(IClienteDAO clienteDAO, IMedicoDAO medicoDAO) {
 		return (args) -> {
-			/*Cliente admin = new Cliente();
+			Cliente admin = new Cliente();
 			admin.setEmail("admin@ufscar.br");
 			admin.setSenha("admin");
 			admin.setcpf("111.111.111-11");
@@ -40,7 +40,7 @@ public class ClinicaApplication {
 			medico.setPapel("ROLE_USER");
 			medico.setCRM("0000000-0/BR");
 			medico.setEnabled(true);
-			medicoDAO.save(medico);*/
+			medicoDAO.save(medico);
 		};
 		
 	}
