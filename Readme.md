@@ -46,3 +46,101 @@ Para acessar a aplicação, abra seu navegador e digite o endereço: [http://loc
     ```bash
     docker-compose logs -f
     ```
+### Como Rodar com Kubernetes (Minikube & Helm)
+Esta seção descreve como implantar a aplicação em um ambiente Kubernetes local.
+
+**Dependências Adicionais**  
+Para este modo de execução, você precisará das seguintes ferramentas:
+
+- **Minikube**: Para criar o cluster Kubernetes local.
+- **kubectl**: A ferramenta de linha de comando para interagir com o cluster.
+- **Helm**: O gerenciador de pacotes para o Kubernetes.
+
+**Roteiro de Instalação e Execução**  
+Siga os passos abaixo para configurar o ambiente, construir as imagens e implantar a aplicação.
+
+1. **Iniciar o Cluster Kubernetes**
+
+   Inicie o Minikube para criar o seu cluster local e ative o addon ingress, que é necessário para o acesso externo à aplicação.
+
+   ```bash
+   # Inicia o cluster Minikube
+   minikube start
+
+   # Ativa o Ingress Controller
+   minikube addons enable ingress
+   ```
+
+2. **Construir as Imagens da Aplicação**
+
+   O projeto inclui um script que automatiza a construção das imagens Docker do backend e do frontend, carregando-as diretamente no ambiente do Minikube.
+
+   ```bash
+   # Dê permissão de execução para o script (apenas na primeira vez)
+   chmod +x build.sh
+
+   # Execute o script para construir as imagens
+   ./build.sh
+   ```
+
+3. **Instalar a Aplicação com Helm**
+
+   Com as imagens prontas e o cluster no ar, utilize o Helm para implantar todos os componentes da aplicação (banco de dados, backend e frontend).
+
+   ```bash
+   # Instala a aplicação usando o Helm Chart contido na pasta ./clinica-chart
+   helm install clinica-release ./clinica-chart
+   ```
+
+   Após a instalação, aguarde cerca de um minuto para que todos os contêineres sejam iniciados. Você pode verificar o status com o comando:
+
+   ```bash
+   kubectl get all
+   ```
+
+   Espere até que todos os Pods na lista estejam com o status **Running**.
+
+**Acesso à Aplicação via Kubernetes**  
+Para que seu navegador consiga encontrar a aplicação através da URL [http://k8s.local](http://k8s.local), você precisa associar o IP do seu cluster Minikube a este domínio.
+
+a. **Encontre o IP do Minikube**
+
+   Execute o seguinte comando no seu terminal:
+
+   ```bash
+   minikube ip
+   ```
+
+b. **Edite seu arquivo hosts**
+
+   Você precisará de permissões de administrador para editar este arquivo.
+
+   - **No Windows (usando WSL):** Edite o arquivo do Windows.
+
+     Abra o Bloco de Notas (ou outro editor) como Administrador.  
+     Abra o arquivo: `C:\Windows\System32\drivers\etc\hosts`
+
+     Adicione a seguinte linha no final do arquivo (substitua `IP_DO_MINIKUBE` pelo IP que você obteve no passo anterior):
+
+     ```
+     IP_DO_MINIKUBE k8s.local
+     ```
+
+   - **No Linux ou macOS:**
+
+     Execute o comando:
+
+     ```bash
+     sudo nano /etc/hosts
+     ```
+
+     Adicione a seguinte linha no final do arquivo:
+
+     ```
+     IP_DO_MINIKUBE k8s.local
+     ```
+
+c. **Acesse no Navegador**
+Agora, abra seu navegador de preferência e acesse a URL:
+
+http://k8s.local
