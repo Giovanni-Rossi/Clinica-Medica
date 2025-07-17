@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: clinica-ingress
+  annotations:
+    # Esta anotação continua necessária para o redirecionamento
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      # Rota para a API do backend
+      - path: /api/(.*)
+        # 👇 CORREÇÃO AQUI
+        pathType: ImplementationSpecific 
+        backend:
+          service:
+            name: {{ .Values.backend.name }}
+            port:
+              number: {{ .Values.backend.port }}
+      # Rota para o frontend
+      - path: /(.*)
+        # 👇 E CORREÇÃO AQUI
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: {{ .Values.frontend.name }}
+            port:
+              number: {{ .Values.frontend.port }}

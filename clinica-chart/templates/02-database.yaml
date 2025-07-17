@@ -1,0 +1,57 @@
+# Service para o banco de dados
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.database.name }}
+spec:
+  ports:
+  - port: {{ .Values.database.port }}
+    targetPort: {{ .Values.database.port }}
+  selector:
+    app: {{ .Values.database.name }}
+---
+# StatefulSet para garantir armazenamento persistente
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.database.name }}
+spec:
+  serviceName: {{ .Values.database.name }}
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.database.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.database.name }}
+    spec:
+      containers:
+      - name: postgres
+        image: {{ .Values.database.image }}
+        ports:
+        - containerPort: {{ .Values.database.port }}
+        env:
+        - name: POSTGRES_DB
+          value: {{ .Values.database.dbName }}
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.database.name }}-credentials
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.database.name }}-credentials
+              key: POSTGRES_PASSWORD
+        volumeMounts:
+        - name: postgres-data
+          mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ .Values.database.storageSize }}

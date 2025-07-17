@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.backend.name }}
+spec:
+  ports:
+  - port: {{ .Values.backend.port }}
+    targetPort: {{ .Values.backend.port }}
+  selector:
+    app: {{ .Values.backend.name }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.backend.name }}
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.backend.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.backend.name }}
+    spec:
+      containers:
+      - name: backend
+        image: {{ .Values.backend.image.name }}:{{ .Values.backend.image.tag }}
+        imagePullPolicy: IfNotPresent # Essencial para usar imagens locais
+        ports:
+        - containerPort: {{ .Values.backend.port }}
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://{{ .Values.database.name }}:{{ .Values.database.port }}/{{ .Values.database.dbName }}
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.database.name }}-credentials
+              key: POSTGRES_USER
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.database.name }}-credentials
+              key: POSTGRES_PASSWORD

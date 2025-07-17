@@ -1,0 +1,31 @@
+# Configurações do Backend (Spring Boot)
+backend:
+  name: clinica-backend
+  replicas: 1
+  image:
+    name: clinica-backend # Nome da imagem criada pelo build.sh
+    tag: latest
+  port: 8080 # Porta padrão do Spring Boot
+
+# Configurações do Frontend (React)
+frontend:
+  name: clinica-frontend
+  replicas: 2 # Podemos ter mais réplicas do frontend
+  image:
+    name: clinica-frontend # Nome da imagem criada pelo build.sh
+    tag: latest
+  port: 80 # Porta que o container do Nginx (React) expõe
+
+# Configurações do Banco de Dados (PostgreSQL)
+database:
+  name: clinica-db
+  image: postgres:15-alpine
+  port: 5432
+  # As credenciais são gerenciadas pelo arquivo secrets.yaml
+  # Não coloque senhas aqui!
+  dbName: clinica
+  storageSize: 1Gi # Tamanho do volume de dados
+
+# Configurações do Ingress (URL de acesso)
+ingress:
+  host: k8s.local
